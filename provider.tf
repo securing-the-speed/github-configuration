@@ -1,4 +1,6 @@
-provider "github" {}
+provider "github" {
+  owner = "securing-the-speed"
+}
 
 terraform {
   required_version = "~> 1.0"
