@@ -1,3 +1,5 @@
+// These are our primary oranization security settings
+
 resource "github_organization_settings" "securing_the_speed" {
     billing_email = "andrewkrug@gmail.com"
     company = "Resilient Security LLC"
@@ -24,4 +26,10 @@ resource "github_organization_settings" "securing_the_speed" {
     dependency_graph_enabled_for_new_repositories = false
     secret_scanning_enabled_for_new_repositories = false
     secret_scanning_push_protection_enabled_for_new_repositories = false
+}
+
+resource "github_repository" "github-configuration" {
+  name        = "github-configuration"
+  description = "Terraform IAC configuration of the Github organization. :)"
+  visibility = "public"
 }
