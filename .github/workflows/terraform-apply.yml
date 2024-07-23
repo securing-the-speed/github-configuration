@@ -1,9 +1,10 @@
 name: Apply terraform on merge to main
-on: [pull_request]
-branches:
-  - main
-types:
-  [closed]
+on:
+  pull_request:
+    types:
+    - closed
+    branches:
+    - main
 
 permissions:
   contents: read
@@ -16,7 +17,7 @@ env:
 jobs:
   plan:
     runs-on: ubuntu-latest
-    name: Create a plan for an example terraform configuration
+    name: Apply terraform on merge
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
