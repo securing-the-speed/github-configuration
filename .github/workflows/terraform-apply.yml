@@ -1,6 +1,9 @@
-name: Create terraform plan
-
-on: [pull_request]
+name: Apply terraform on merge to main
+on: [merge]
+branches:
+  - main
+types:
+  [closed]
 
 permissions:
   contents: read
@@ -27,7 +30,7 @@ jobs:
           role-session-name: github-configuration-actions
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: terraform plan
+      - name: terraform apply
         uses: dflook/terraform-plan@v1
         with:
           path: .
