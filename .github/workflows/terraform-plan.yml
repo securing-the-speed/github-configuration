@@ -5,7 +5,7 @@ on: [pull_request]
 permissions:
   contents: read
   pull-requests: write
-  id-token: read
+  id-token: write
 
 env:
   BUCKET_NAME : "terraform-state.359300022316"
