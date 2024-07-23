@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Apply terraform on merge
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.org_admin_token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
