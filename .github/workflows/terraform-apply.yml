@@ -1,5 +1,5 @@
 name: Apply terraform on merge to main
-on: [merge]
+on: [pull_request]
 branches:
   - main
 types:
