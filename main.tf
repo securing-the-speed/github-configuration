@@ -33,3 +33,9 @@ resource "github_repository" "github-configuration" {
   description = "Terraform IAC configuration of the Github organization. :)"
   visibility = "public"
 }
+
+resource "github_repository" "serverless-listener" {
+  name        = "serverless-security-listener"
+  description = "A webhook listener example for serverless. :)"
+  visibility = "public"
+}
