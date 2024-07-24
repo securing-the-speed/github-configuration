@@ -33,6 +33,8 @@ resource "github_repository" "github-configuration" {
   description = "Terraform IAC configuration of the Github organization. :)"
   visibility = "public"
   vulnerability_alerts = false
+  ignore_vulnerability_alerts_during_read = true
+  topics = ["configuration", "terraform"]
 }
 
 resource "github_repository" "serverless-listener" {
@@ -40,4 +42,6 @@ resource "github_repository" "serverless-listener" {
   description = "A webhook listener example for serverless. :)"
   visibility = "public"
   vulnerability_alerts = false
+  ignore_vulnerability_alerts_during_read = true
+  topics = ["iac", "automated"]
 }
