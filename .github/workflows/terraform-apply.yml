@@ -7,9 +7,10 @@ on:
     - main
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   id-token: write
+  security-events: write
 
 env:
   BUCKET_NAME : "terraform-state.359300022316"
