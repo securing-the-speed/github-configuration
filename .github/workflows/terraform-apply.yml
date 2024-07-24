@@ -1,0 +1,38 @@
+name: Apply terraform on merge to main
+on:
+  pull_request:
+    types:
+    - closed
+    branches:
+    - main
+
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+
+env:
+  BUCKET_NAME : "terraform-state.359300022316"
+  AWS_REGION : "us-west-2"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    name: Apply terraform on merge
+    env:
+      GITHUB_TOKEN: ${{ secrets.org_admin_token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::359300022316:role/github-configuration-ci-cd
+          role-session-name: github-configuration-actions
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: terraform apply
+        uses: dflook/terraform-plan@v1
+        with:
+          path: .
